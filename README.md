@@ -55,7 +55,53 @@ Miss too many violations and you get a warning. Let legitimate vehicles through 
 
 ## Tech Stack
 
-> TBD — to be decided during the hackathon
+- **React 18** — UI and game screens
+- **Vite** — dev server and build tool
+- **Zustand** — lightweight game state management
+- **Framer Motion** — stamp animations and screen transitions
+- **CSS Modules** — scoped per-component styles, no framework
+
+No game engine — the game is UI-driven enough that plain React handles it faster for a web dev team.
+
+## Project Structure
+
+```
+src/
+├── main.jsx              # entry point
+├── App.jsx               # screen router
+├── styles/
+│   └── global.css        # CSS variables + reset
+├── store/
+│   └── gameStore.js      # all game state (Zustand)
+├── data/
+│   ├── rules.js          # validation logic + per-day rulebook
+│   └── vehicles.js       # procedural vehicle/permit generator
+├── screens/
+│   ├── TitleScreen       # start screen
+│   ├── DayBriefing       # daily rule memo before shift
+│   ├── GameScreen        # main gameplay layout
+│   ├── ShiftReport       # end-of-day score card
+│   └── GameOver          # terminated screen
+└── components/
+    ├── HUD               # score, day, error counter
+    ├── PermitCard        # the permit document (fields highlight on violations)
+    ├── StampControls     # APPROVE / DENY buttons with stamp animation
+    ├── Rulebook          # collapsible sidebar with active regulations
+    └── VehicleQueue      # left panel showing upcoming vehicles
+```
+
+## Game Rules (current)
+
+| Day | New rule added |
+|-----|----------------|
+| 1   | Permit must not be expired |
+| 2   | Zone on permit must match requested zone |
+| 3   | Plate number on permit must match vehicle plate |
+| 4+  | More to come |
+
+- 8 vehicles per shift, ~50% have violations
+- 3 mistakes = terminated
+- Correct decision: **+10 pts** — Wrong decision: **-5 pts**
 
 ## Team
 
@@ -63,7 +109,12 @@ Miss too many violations and you get a warning. Let legitimate vehicles through 
 
 ## Getting Started
 
-> Setup instructions will be added as development progresses
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ## Inspiration
 
