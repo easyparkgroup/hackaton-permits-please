@@ -1,0 +1,74 @@
+.panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.list {
+  overflow-y: auto;
+  flex: 1;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  font-size: 0.8rem;
+}
+
+.item.current {
+  border-color: var(--color-accent);
+  background-color: rgba(180, 120, 40, 0.08);
+}
+
+.itemPlate {
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex: 1;
+}
+
+.itemZone {
+  font-size: 0.7rem;
+  color: var(--color-muted);
+}
+
+.currentBadge {
+  font-size: 0.55rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  padding: 0.1rem 0.35rem;
+}
+
+.position {
+  font-size: 0.65rem;
+  color: var(--color-muted);
+}
+
+.empty {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  text-align: center;
+  margin-top: 1rem;
+}
