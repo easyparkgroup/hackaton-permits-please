@@ -14,6 +14,7 @@ export const useGameStore = create((set, get) => ({
   queue: [],
   currentVehicle: null,
   decisions: [],
+  lastResult: null,
 
   startGame: () => {
     set({ screen: 'briefing', day: 1, score: 0, mistakes: 0, decisions: [] })
@@ -46,9 +47,10 @@ export const useGameStore = create((set, get) => ({
 
     const newScore = score + (wasCorrect ? 10 : -5)
     const newMistakes = mistakes + (wasCorrect ? 0 : 1)
+    const newLastResult = wasCorrect ? null : 'wrong'
 
     if (newMistakes >= MAX_MISTAKES) {
-      set({ screen: 'gameover', score: newScore, mistakes: newMistakes, decisions: newDecisions })
+      set({ screen: 'gameover', score: newScore, mistakes: newMistakes, decisions: newDecisions, lastResult: 'gameover' })
       return
     }
 
@@ -59,6 +61,7 @@ export const useGameStore = create((set, get) => ({
         mistakes: newMistakes,
         currentVehicle: null,
         decisions: newDecisions,
+        lastResult: newLastResult,
       })
       return
     }
@@ -70,6 +73,7 @@ export const useGameStore = create((set, get) => ({
       currentVehicle: next,
       queue: rest,
       decisions: newDecisions,
+      lastResult: newLastResult,
     })
   },
 
@@ -78,7 +82,9 @@ export const useGameStore = create((set, get) => ({
     set({ day: day + 1, screen: 'briefing' })
   },
 
+  clearLastResult: () => set({ lastResult: null }),
+
   resetGame: () => {
-    set({ screen: 'title', day: 1, score: 0, mistakes: 0, queue: [], currentVehicle: null, decisions: [] })
+    set({ screen: 'title', day: 1, score: 0, mistakes: 0, queue: [], currentVehicle: null, decisions: [], lastResult: null })
   },
 }))
