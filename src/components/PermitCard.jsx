@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useGameStore } from '../store/gameStore'
 import { isExpired, zoneMatches, plateMatchesVehicle } from '../data/rules'
 import CustomerFace from './CustomerFace'
+import VehicleIllustration from './VehicleIllustration'
 import styles from './PermitCard.module.css'
 
 export default function PermitCard({ vehicle }) {
@@ -55,11 +56,17 @@ export default function PermitCard({ vehicle }) {
       </div>
 
       <div className={styles.vehicleInfo}>
-        <div className={styles.vehicleRow}>
-          <span className={styles.vehicleLabel}>VEHICLE AT BOOTH:</span>
-          <span className={styles.vehiclePlate}>{vehicle.plate}</span>
-          <span>→</span>
-          <span className={styles.vehicleZone}>Zone {vehicle.requestedZone}</span>
+        <div className={styles.vehicleIllustrationRow}>
+          <div className={styles.vehicleIllustrationBox}>
+            <VehicleIllustration vehicleType={vehicle.vehicleType} vehicleId={vehicle.id} size={120} />
+            <span className={styles.photoLabel}>{vehicle.vehicleType.toUpperCase()}</span>
+          </div>
+          <div className={styles.vehicleRow}>
+            <span className={styles.vehicleLabel}>VEHICLE AT BOOTH:</span>
+            <span className={styles.vehiclePlate}>{vehicle.plate}</span>
+            <span>→</span>
+            <span className={styles.vehicleZone}>Zone {vehicle.requestedZone}</span>
+          </div>
         </div>
       </div>
     </motion.div>

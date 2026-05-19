@@ -126,6 +126,24 @@
   padding-top: 0.75rem;
 }
 
+.vehicleIllustrationRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.vehicleIllustrationBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  border: 2px solid var(--color-ink);
+  padding: 3px;
+  background: #e8e8e8;
+  align-self: flex-start;
+  width: 100%;
+}
+
 .vehicleRow {
   display: flex;
   align-items: center;
