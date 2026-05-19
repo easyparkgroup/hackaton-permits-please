@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useGameStore } from '../store/gameStore'
 import { isExpired, zoneMatches, plateMatchesVehicle } from '../data/rules'
+import CustomerFace from './CustomerFace'
 import styles from './PermitCard.module.css'
 
 export default function PermitCard({ vehicle }) {
@@ -21,6 +22,17 @@ export default function PermitCard({ vehicle }) {
       <div className={styles.cardHeader}>
         <span className={styles.authority}>CITY PARKING AUTHORITY</span>
         <span className={styles.permitType}>{permit.type} PERMIT</span>
+      </div>
+
+      <div className={styles.photoRow}>
+        <div className={styles.photoBox}>
+          <CustomerFace vehicleId={vehicle.id} size={72} />
+          <span className={styles.photoLabel}>PHOTO ID</span>
+        </div>
+        <div className={styles.holderInfo}>
+          <span className={styles.holderName}>{permit.holderName}</span>
+          <span className={styles.holderPermit}>{permit.number}</span>
+        </div>
       </div>
 
       <div className={styles.grid}>

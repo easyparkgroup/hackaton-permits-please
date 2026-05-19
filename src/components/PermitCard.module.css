@@ -33,6 +33,55 @@
   padding: 0.15rem 0.5rem;
 }
 
+.photoRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+}
+
+.photoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+  border: 2px solid var(--color-ink);
+  padding: 3px;
+  background: #c8d8e8;
+}
+
+.photoLabel {
+  font-size: 0.45rem;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.holderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.holderName {
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.holderPermit {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+  font-weight: 700;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
